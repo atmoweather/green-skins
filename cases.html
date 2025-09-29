@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenSkins — Скачати скіни</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="cases.css">
+  <script src="cases.js" defer></script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="GreenSkins — головна">GreenSkins <span class="logo-dot">•</span></a>
+
+      <nav class="main-nav" aria-label="Основна навігація">
+        <a href="index.html" class="active">Головна</a>
+        <a href="catalog.html">Каталоги</a>
+        <a href="contact.html">Контакти</a>
+        <a href="cases.html">Кейси</a>
+        <a href="ruletka.html">Рулетка</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-grid" role="main">
+    <section class="content-area">
+      <div class="hero card">
+        <div class="hero-left">
+          <h1>Повний пак зброї для CSS</h1>
+          <p class="meta">61 927 • 18 коментарів • 31.12.2024</p>
+        </div>
+        <div class="hero-cta">
+          <a class="btn primary" id="openPackBtn" href="case.html?id=classic">Детальніше</a>
+        </div>
+      </div>
+
+      <section id="skins" class="skins">
+        <h2>Найпопулярніші скіни</h2>
+        <div class="skins-grid" id="skinsGrid" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card sidebar-panel">
+        <h3>Найкращі скіни</h3>
+        <p class="muted">Підбірка найпопулярніших артувань від спільноти.</p>
+      </div>
+
+      <div class="card sidebar-panel sponsors">
+        <h4>Спонсори сайту</h4>
+        <ul>
+          <li>Prevocodno <span>10$</span></li>
+          <li>Members229 <span>100$</span></li>
+        </ul>
+        <a class="btn secondary full" href="#">Допомогти сайту</a>
+      </div>
+
+      <div class="card sidebar-panel">
+        <h4>Онлайн</h4>
+        <p>Користувачів зараз: <strong>44</strong></p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 GreenSkins. Всі права захищено.</p>
+    </div>
+  </footer>
+
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+</body>
+</html>

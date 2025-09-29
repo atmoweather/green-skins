@@ -1,0 +1,317 @@
+/* ==============================
+   catalog.css — повний стиль
+   Неонова палітра: зелений + жовтий
+   ============================== */
+
+   :root{
+      --bg-1: #0f1315;
+      --bg-2: #07090b;
+      --panel: #0f1512;
+      --accent: #05ff7a;        /* primary neon green */
+      --accent-2: #ffd400;      /* yellow highlight */
+      --accent-dark: #00b94d;
+      --muted: #9aa1a6;
+      --text: #e6eef1;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(5,255,122,0.03);
+      --card-shadow: 0 10px 30px rgba(2,8,10,0.72);
+      --focus-shadow: 0 12px 40px rgba(5,255,122,0.08);
+      --radius: 12px;
+      font-family: "Orbitron", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    
+    /* -----------------------
+       Reset / base
+       ----------------------- */
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
+    
+    html, body { height: 100%; margin: 0; padding: 0; background: linear-gradient(180deg,var(--bg-1),var(--bg-2)); color: var(--text); }
+    
+    body {
+      line-height: 1.45;
+      -webkit-font-feature-settings: "liga" 1;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* container */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 18px; }
+    
+    /* decorative side backgrounds (placeholders kept) */
+    .bg-left, .bg-right {
+      position: fixed; top: 0; bottom: 0; width: 220px; z-index: 0; pointer-events: none;
+      background-size: cover; background-position: center; opacity: 0.95; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+    }
+    
+    /* -----------------------
+       Header (shared look)
+       ----------------------- */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(6px);
+    }
+    
+    .logo { color: var(--accent); font-weight: 800; font-size: 18px; text-decoration: none; display:flex; align-items:center; gap:8px; }
+    .logo-dot { color: #8fffd1; font-weight: 900; }
+    
+    /* nav */
+    .main-nav { display:flex; gap: 18px; align-items:center; }
+    .main-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: transform .12s ease, background .12s ease, color .12s ease;
+    }
+    .main-nav a:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      background: linear-gradient(90deg, rgba(5,255,122,0.04), rgba(255,212,64,0.02));
+      box-shadow: var(--focus-shadow);
+    }
+    .main-nav a.active {
+      color: #fff;
+      background: linear-gradient(90deg, rgba(5,255,122,0.06), rgba(255,212,64,0.03));
+      box-shadow: 0 8px 26px rgba(5,255,122,0.06);
+    }
+    
+    /* header right / search */
+    .header-right { display:flex; gap:12px; align-items:center; }
+    .search input {
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.04);
+      background: var(--glass);
+      color: var(--text);
+      outline: none;
+      min-width: 160px;
+    }
+    .search input:focus { box-shadow: var(--focus-shadow); transform: translateY(-1px); }
+    
+    /* -----------------------
+       Buttons — reset + styles
+       ----------------------- */
+    /* reset appearance for native buttons */
+    button, .btn, .weapon-filter button, .filter-buttons .btn {
+      -webkit-appearance: none;
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+    }
+    
+    /* general neutral button */
+    .btn {
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 800;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      color: #e6eef1;
+      box-shadow: 0 8px 26px rgba(0,0,0,0.55);
+    }
+    
+    /* green primary */
+    .btn.green {
+      background: linear-gradient(180deg, var(--accent), #00d26a);
+      color: #07110c;
+      box-shadow: 0 10px 30px rgba(5,255,122,0.08);
+    }
+    
+    /* small variant */
+    .btn.small {
+      padding: 7px 10px;
+      font-size: 13px;
+      border-radius: 9px;
+    }
+    
+    /* yellow / accent button (header/search) */
+    .btn-yellow, .btn.yellow {
+      background: linear-gradient(180deg, var(--accent-2), #ffb700);
+      color: #0b0b0b;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 26px rgba(255,212,64,0.06);
+    }
+    
+    /* download button specific (link styled as button) */
+    .download-btn {
+      display:inline-block;
+      background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+      color:#07110c;
+      padding:10px 12px;
+      border-radius:10px;
+      font-weight:900;
+      text-decoration:none;
+      box-shadow: 0 10px 30px rgba(5,255,122,0.08);
+    }
+    
+    /* hover / active micro interactions */
+    .btn:hover, .download-btn:hover, .weapon-filter button:hover, .filter-buttons .btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.99;
+    }
+    .btn:active, .download-btn:active { transform: translateY(1px); opacity: 0.95; }
+    
+    /* -----------------------
+       Layout: catalog panel
+       ----------------------- */
+    .catalog-panel { display:flex; gap:24px; align-items:flex-start; margin: 20px 0; }
+    .sidebar { width: 280px; }
+    .content { flex: 1; }
+    
+    /* cards / panels */
+    .card, .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    
+    /* header panel */
+    .header-panel { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+    .page-title { margin:0; font-size:22px; font-weight:900; color:#fff; }
+    .muted { color: var(--muted); }
+    
+    /* top filter buttons */
+    .filter-buttons { display:flex; gap:8px; flex-wrap:wrap; }
+    .filter-buttons .btn { padding:8px 12px; border-radius:10px; background: transparent; color: var(--muted); box-shadow:none; }
+    .filter-buttons .btn.green { background: linear-gradient(180deg, var(--accent), #00d26a); color: #07110c; box-shadow: 0 8px 26px rgba(5,255,122,0.06); }
+    
+    /* toolbar inside panel */
+    .catalog-toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+    .search-inline { display:flex; gap:8px; }
+    .search-inline input { padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:var(--glass); color:var(--text); }
+    .search-inline input:focus { box-shadow: var(--focus-shadow); }
+    
+    /* -----------------------
+       Weapon filter (sidebar)
+       ----------------------- */
+    .weapon-filter { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:8px; }
+    .weapon-filter button {
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-align: left;
+      width: 100%;
+      font-weight: 800;
+      box-shadow: none;
+      transition: background .12s, transform .12s, color .12s;
+    }
+    .weapon-filter button:hover { transform: translateY(-2px); color: #fff; }
+    .weapon-filter button.active {
+      background: linear-gradient(90deg, rgba(5,255,122,0.06), rgba(255,212,64,0.03));
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(5,255,122,0.06);
+    }
+    
+    /* -----------------------
+       Skins grid / cards
+       ----------------------- */
+    .skins-grid, #catalogGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    
+    .skin-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.04));
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .skin-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.72); }
+    
+    .skin-card img {
+      width:100%;
+      height:150px;
+      object-fit: cover;
+      border-radius: 10px;
+      display:block;
+      background: linear-gradient(180deg, rgba(5,255,122,0.02), rgba(255,212,64,0.01));
+      box-shadow: 0 6px 18px rgba(5,255,122,0.02) inset;
+      cursor: pointer;
+    }
+    .skin-card h3 { margin:12px 0 6px; font-size:16px; color:#fff; font-weight:800; }
+    .card-meta { color: var(--muted); font-size:13px; }
+    
+    /* small actions row */
+    .skin-actions { margin-top:10px; display:flex; gap:8px; align-items:center; }
+    
+    /* -----------------------
+       Modal
+       ----------------------- */
+    .img-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(3,6,8,0.75);
+      z-index: 10010;
+      padding: 20px;
+    }
+    .img-modal.open { display:flex; }
+    .img-modal img { max-width: min(90vw, 900px); max-height: 90vh; border-radius: 12px; box-shadow: 0 18px 50px rgba(0,0,0,0.7); }
+    .modal-close { position: absolute; top: 18px; right: 22px; background: transparent; border: none; color: #fff; font-size: 34px; cursor: pointer; }
+    
+    /* -----------------------
+       Footer
+       ----------------------- */
+    .site-footer {
+      text-align:center;
+      padding: 26px 0;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.02);
+      margin-top: 26px;
+    }
+    
+    /* -----------------------
+       Accessibility / focus
+       ----------------------- */
+    button:focus, a:focus, input:focus {
+      outline: 3px solid rgba(5,255,122,0.12);
+      outline-offset: 3px;
+    }
+    
+    /* -----------------------
+       Responsive tweaks
+       ----------------------- */
+    @media (max-width: 1000px) {
+      .catalog-panel { flex-direction: column; }
+      .sidebar { width: 100%; order: 2; }
+      .content { order: 1; }
+      .logo { font-size: 16px; }
+    }
+    
+    @media (max-width: 760px) {
+      .skin-card img { height: 130px; }
+      .search-inline input { min-width: 120px; }
+      .filter-buttons { gap: 6px; }
+      .weapon-filter button { padding: 10px; font-size: 14px; }
+    }
+    

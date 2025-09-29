@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenSkins — Каталоги</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="catalog.css">
+  <script src="catalog.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <a class="logo" href="index.html">GreenSkins <span class="logo-dot">•</span></a>
+    </div>
+
+    <nav class="main-nav" aria-label="Головна навігація">
+      <a href="index.html">Головна</a>
+      <a class="active" href="catalog.html">Каталоги</a>
+      <a href="profile.html">Про нас\контакти</a>
+      <a href="ruletka.html">Рулетка</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="search">
+        <input id="topSearch" type="search" placeholder="Пошук по скінам..." />
+        <button id="topSearchBtn" class="btn green small">Знайти</button>
+      </div>
+      
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="catalog-panel">
+      <aside class="sidebar">
+        <div class="card widget">
+          <h3>Фільтр по зброї</h3>
+          <ul class="weapon-filter" id="weaponsList">
+            <!-- заповнить JS -->
+          </ul>
+        </div>
+
+        <div class="card widget">
+          <h3>Спонсори</h3>
+          <ul class="sponsors">
+            <li>Prevocodno <span>10$</span></li>
+            <li>Members229 <span>100$</span></li>
+          </ul>
+          <button class="btn green full">Підтримати</button>
+        </div>
+
+        <div class="card widget">
+          <h3>Онлайн</h3>
+          <p>Користувачів зараз: <strong>44</strong></p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="panel header-panel">
+          <div>
+            <h1 class="page-title">Каталог скінів</h1>
+            <p class="muted">Вибери зброю або знайди потрібний скин за назвою</p>
+          </div>
+
+          <div class="filters-top">
+            <div id="weaponFilters" class="filter-buttons"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="catalog-toolbar">
+            <div class="current">Скіни для: <strong id="currentWeapon">Усі</strong></div>
+            <div class="search-inline">
+              <input id="searchInput" placeholder="Пошук скіна..." />
+              <button id="searchBtn" class="btn green small">Шукати</button>
+            </div>
+          </div>
+
+          <div id="catalogGrid" class="skins-grid">
+            <!-- JS згенерує карточки -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Image modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <button id="modalClose" class="modal-close" aria-label="Закрити">×</button>
+    <img id="modalImg" alt="Велике зображення скіна">
+  </div>
+
+  <footer class="site-footer">
+    © 2025 GreenSkins. Всі права захищено.
+  </footer>
+</body>
+</html>

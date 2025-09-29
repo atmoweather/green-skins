@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenSkins — Контакти</title>
+  <link rel="stylesheet" href="roulette.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <a class="logo" href="index.html">GreenSkins <span class="logo-dot">•</span></a>
+    </div>
+
+    <nav class="main-nav" aria-label="Головна навігація">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html">Каталоги</a>
+      <a class="active" href="contact.html">Про нас\контакти</a>
+      <a href="ruletka.html">Рулетка</a>
+    </nav>
+
+    <div class="header-right">
+      </div>
+  </header>
+
+  <main class="container" style="max-width:1000px;">
+    <section style="padding:28px;">
+      <h1 class="page-title">Контакти та зворотний зв'язок</h1>
+
+      <div style="display:grid; grid-template-columns: 1fr 380px; gap:24px; align-items:start;">
+        <!-- Ліва колонка: форма -->
+        <div class="card" style="padding:18px;">
+          <h2>Зворотній зв'язок</h2>
+          <p class="muted">Маєш питання, пропозицію або знайшов помилку? Напиши нам — відповімо.</p>
+
+          <form action="https://formspree.io/f/mblawpdz" method="POST" class="contact-form">
+            <label style="display:block; margin-top:12px;">
+              Ім'я
+              <input name="name" required placeholder="Ваше ім'я"
+                style="width:100%; padding:10px; margin-top:6px; border-radius:8px;
+                border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--muted);" />
+            </label>
+
+            <label style="display:block; margin-top:12px;">
+              Email
+              <input name="email" type="email" required placeholder="you@example.com"
+                style="width:100%; padding:10px; margin-top:6px; border-radius:8px;
+                border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--muted);" />
+            </label>
+
+            <label style="display:block; margin-top:12px;">
+              Тема
+              <input name="subject" placeholder="Коротко про проблему"
+                style="width:100%; padding:10px; margin-top:6px; border-radius:8px;
+                border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--muted);" />
+            </label>
+
+            <label style="display:block; margin-top:12px;">
+              Повідомлення
+              <textarea name="message" required rows="6" placeholder="Опиши, будь ласка, деталі..."
+                style="width:100%; padding:10px; margin-top:6px; border-radius:8px;
+                border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--muted);"></textarea>
+            </label>
+
+            <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+              <button type="submit" class="btn green">Відправити</button>
+              <button type="reset" class="btn small">Очистити</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Права колонка: контакти -->
+        <aside class="card" style="padding:18px;">
+          <h3>Наші контакти</h3>
+          <ul style="list-style:none; padding:0; margin:10px 0 0; color:var(--muted);">
+            <li><strong>Email:</strong> <a href="mailto:example@greenskins.com">example@greenskins.com</a></li>
+            <li style="margin-top:6px;"><strong>Telegram:</strong> <a href="https://t.me/YourChannel" target="_blank" rel="noopener">t.me/YourChannel</a></li>
+            <li style="margin-top:6px;"><strong>Discord:</strong> <span>discord.gg/yourinvite</span></li>
+            <li style="margin-top:6px;"><strong>Підтримка:</strong> <a href="mailto:support@greenskins.com">support@greenskins.com</a></li>
+          </ul>
+
+          <hr style="margin:14px 0; border-color:rgba(255,255,255,0.03)">
+
+          <h4>Ми в соцмережах</h4>
+          <div style="display:flex; gap:10px; margin-top:8px;">
+            <a href="https://t.me/YourChannel" target="_blank" rel="noopener" aria-label="Telegram"
+               style="display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px;
+               border-radius:8px; background:#07110c;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#05ff7a" xmlns="http://www.w3.org/2000/svg"><path d="M21 3L3 11l5 2 2 6 3-4 6 4z"/></svg>
+            </a>
+
+            <a href="https://discord.gg/yourinvite" target="_blank" rel="noopener" aria-label="Discord"
+               style="display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px;
+               border-radius:8px; background:#07110c;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#5fffad" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C7 2 3 5.6 3 10v4c0 4.4 4 8 9 8s9-3.6 9-8v-4c0-4.4-4-8-9-8z"/></svg>
+            </a>
+
+            <a href="https://youtube.com/YourChannel" target="_blank" rel="noopener" aria-label="YouTube"
+               style="display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px;
+               border-radius:8px; background:#07110c;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffd400" xmlns="http://www.w3.org/2000/svg"><path d="M10 15l5-3-5-3z"/></svg>
+            </a>
+
+            <a href="https://instagram.com/YourProfile" target="_blank" rel="noopener" aria-label="Instagram"
+               style="display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px;
+               border-radius:8px; background:#07110c;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#24ff6c" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"/></svg>
+            </a>
+          </div>
+
+          <hr style="margin:14px 0; border-color:rgba(255,255,255,0.03)">
+
+          <h4>Години роботи</h4>
+          <p style="color:var(--muted); margin:6px 0 0;">Пн–Пт: 10:00–19:00 <br> Сб–Нд: вихідні/чергові відповіді</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2025 GreenSkins. Всі права захищено.
+  </footer>
+
+</body>
+</html>

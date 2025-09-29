@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рулетка для скінів</title>
+  <link rel="stylesheet" href="roulette.css">
+</head>
+<body>
+  <header>
+    <h1>GreenSkins Logo</h1>
+    <nav>
+      <a href="#">Головна</a>
+      <a href="#">Каталоги</a>
+      <a href="#">Мій профіль</a>
+      <a href="#">Рулетка</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Відкриття кейсу</h2>
+
+    <!-- Картинка кейсу -->
+    <div class="case-box" id="caseBox">
+      <img src="case.png" alt="Case" id="caseImage">
+    </div>
+
+    <!-- Кнопка для відкриття -->
+    <button class="spin-btn" id="openCaseBtn">Відкрити кейс</button>
+
+    <!-- Результат -->
+    <div class="result" id="result"></div>
+  </main>
+
+  <footer>
+    © 2025 GreenSkins. Всі права захищено.
+  </footer>
+
+  <script src="roulette.js"></script>
+</body>
+</html>
+----------------------------------------------------------------------
+css
+
+/* Скидання стилів */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ body {
+   background: #121212;
+   color: #fff;
+   font-family: Arial, sans-serif;
+   text-align: center;
+ }
+ 
+ /* Шапка */
+ header {
+   background: #1f1f1f;
+   padding: 15px 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 2px solid #00ff99;
+ }
+ 
+ header h1 {
+   font-size: 20px;
+   color: #00ff99;
+ }
+ 
+ header nav a {
+   margin: 0 15px;
+   text-decoration: none;
+   color: white;
+   font-size: 16px;
+ }
+ 
+ header nav a:hover {
+   color: #00ff99;
+ }
+ 
+ /* Основна частина */
+ main {
+   margin-top: 30px;
+   padding: 0 10px;
+ }
+ 
+ /* Блок кейса */
+ .case-box {
+   margin: 40px auto;
+   width: 200px;
+   height: 200px;
+   position: relative;
+   overflow: hidden;
+ }
+ 
+ .case-box img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   transition: transform 1.2s ease, opacity 1.2s ease;
+ }
+ 
+ /* Кнопка */
+ .spin-btn {
+   background: #00ff99;
+   border: none;
+   padding: 12px 30px;
+   font-size: 18px;
+   font-weight: bold;
+   cursor: pointer;
+   border-radius: 8px;
+   transition: background 0.3s, transform 0.2s;
+ }
+ 
+ .spin-btn:hover {
+   background: #00cc77;
+   transform: scale(1.05);
+ }
+ 
+ /* Результат */
+ .result {
+   margin-top: 20px;
+   font-size: 18px;
+   color: #ccc;
+ }
+ 
+ /* Стиль для виграшу */
+ .skin-result {
+   margin-top: 20px;
+ }
+ 
+ .skin-result img {
+   width: 150px;
+   height: auto;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0,255,153,0.5);
+   margin-bottom: 15px;
+ }
+ 
+ .download-btn {
+   display: inline-block;
+   background: #00ff99;
+   color: #121212;
+   text-decoration: none;
+   padding: 10px 20px;
+   border-radius: 6px;
+   font-weight: bold;
+   transition: background 0.3s;
+ }
+ 
+ .download-btn:hover {
+   background: #00cc77;
+ }
+ 
+ /* Підвал */
+ footer {
+   margin-top: 50px;
+   font-size: 14px;
+   color: #666;
+ }
+ 
+
+ -------------------------------------------------
+ js
+
+
+ const openCaseBtn = document.getElementById('openCaseBtn');
+const caseBox = document.getElementById('caseBox');
+const caseImage = document.getElementById('caseImage');
+const result = document.getElementById('result');
+
+// Список скінів
+const skins = [
+  { name: "AK-47 | Redline", img: "skins/ak-redline.png", link: "downloads/ak-redline.zip" },
+  { name: "M4A4 | Howl", img: "skins/m4a4-howl.png", link: "downloads/m4a4-howl.zip" },
+  { name: "AWP | Dragon Lore", img: "skins/awp-dragonlore.png", link: "downloads/awp-dragonlore.zip" },
+  { name: "Glock-18 | Fade", img: "skins/glock-fade.png", link: "downloads/glock-fade.zip" },
+  { name: "USP-S | Orion", img: "skins/usp-orion.png", link: "downloads/usp-orion.zip" }
+];
+
+openCaseBtn.addEventListener('click', () => {
+  // Анімація підняття кейса
+  caseImage.style.transform = "translateY(-300px)";
+  caseImage.style.opacity = "0";
+
+  // Показуємо виграш через 1.5 секунди
+  setTimeout(() => {
+    const randomSkin = skins[Math.floor(Math.random() * skins.length)];
+
+    result.innerHTML = `
+      <div class="skin-result">
+        <img src="${randomSkin.img}" alt="${randomSkin.name}">
+        <p>${randomSkin.name}</p>
+        <a href="${randomSkin.link}" class="download-btn" download>Скачати</a>
+      </div>
+    `;
+
+    // Повертаємо кейс для наступної анімації
+    caseImage.style.transform = "translateY(0)";
+    caseImage.style.opacity = "1";
+  }, 1500);
+});

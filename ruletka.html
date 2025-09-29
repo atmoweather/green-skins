@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenSkins — Рулетка / Відкриття кейсу</title>
+  <link rel="stylesheet" href="roulette.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <a class="logo" href="#">GreenSkins <span class="logo-dot">•</span></a>
+    </div>
+
+    <nav class="main-nav" aria-label="Головна навігація">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html">Каталоги</a>
+      <a href="profile.html">Про нас\контакти</a>
+      <a class="active" href="#">Рулетка</a>
+    </nav>
+
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <div class="card widget">
+        <h3>Нудно вибирати?</h3>
+        <h3>Спробуй кейс!</h3>
+       
+      </div>
+
+      <div class="card widget">
+        <h3>Спонсори сайту</h3>
+        <ul class="sponsors">
+          <li>Prevocodno <span>10$</span></li>
+          <li>Members229 <span>100$</span></li>
+        </ul>
+        <button class="btn green">Помочь сайту</button>
+      </div>
+
+      <div class="card widget">
+        <h3>Онлайн</h3>
+        <p>Користувачів зараз: <strong>44</strong></p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <h1 class="page-title">Відкриття кейсу</h1>
+
+      <div class="roulette-panel">
+        <div class="neon-top" aria-hidden="true"></div>
+
+        <div class="case-area">
+          <div class="case-wrap" aria-hidden="true">
+            <img id="caseImage" src="case.png" alt="Кейс" class="case-img" />
+          </div>
+          <div class="case-note">Натисни «Відкрити кейс», щоб отримати скин</div>
+        </div>
+
+        <div class="controls">
+          <button id="openCaseBtn" class="btn big">Відкрити кейс</button>
+        </div>
+
+        <div id="result" class="result-area" aria-live="polite"></div>
+
+        <div class="skins-list">
+          <h3>Список скинів (можеш скачати)</h3>
+          <div class="skins-grid" id="skinsGrid" aria-label="Список скинів — сітка"></div>
+        </div>
+
+        <div class="neon-bottom" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2025 GreenSkins. Всі права захищено.
+  </footer>
+
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <script src="roulette.js"></script>
+</body>
+</html>

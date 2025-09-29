@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenSkins — Повний мод-пак для CSS</title>
+
+  <!-- Google Fonts (Orbitron для заголовків, Noto Sans для тексту) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Локальні стилі сторінки паку — під стиль сайту */
+    :root{
+      --muted:#9aa1a6;
+      --accent:#05ff7a;
+      --accent-dark:#00d26a;
+      --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --radius:12px;
+    }
+    body { font-family: "Noto Sans", sans-serif; }
+    .pack-wrap{ max-width:1100px; margin:36px auto; padding:20px; display:grid; grid-template-columns: 1fr 360px; gap:28px; }
+    .card{ background:var(--card-bg); padding:18px; border-radius:var(--radius); border:1px solid rgba(255,255,255,0.02); box-shadow:0 10px 30px rgba(0,0,0,0.6); }
+    .preview{ width:100%; border-radius:10px; display:block; object-fit:cover; box-shadow:0 8px 20px rgba(0,0,0,0.6); }
+    h1{ font-family: "Orbitron", sans-serif; margin:12px 0; color:#fff; }
+    .meta{ color:var(--muted); font-size:14px; margin-bottom:8px; }
+    .download-btn{
+      display:inline-block; margin-top:14px;
+      background: linear-gradient(180deg,var(--accent),var(--accent-dark));
+      color:#06110a; padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none;
+      box-shadow:0 10px 24px rgba(5,255,122,0.12);
+    }
+    .pack-list{ margin-top:14px; display:grid; gap:8px; }
+    .pack-list .item{ display:flex; justify-content:space-between; padding:10px; border-radius:8px; background:rgba(255,255,255,0.01); font-weight:700; color:#fff; }
+    .notes{ margin-top:12px; color:var(--muted); font-size:14px; }
+    .faq{ margin-top:16px; }
+    .faq h4{ margin:10px 0 6px; color:#fff; font-weight:700; }
+    .back { color:var(--muted); text-decoration:none; display:inline-block; margin-bottom:12px; }
+    @media (max-width:980px){ .pack-wrap{ grid-template-columns:1fr; padding:12px } .preview{ max-height:320px; object-fit:cover } }
+    .toast{ position:fixed; right:20px; bottom:20px; background:#0b0f12; color:#dfffe6; padding:12px 16px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.6); display:none; z-index:9999; }
+  </style>
+</head>
+<body>
+
+  <!-- Header (встав свій header або підключи загальний) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="GreenSkins — головна">
+        <img src="gradient.png" class="logo-img" alt="GreenSkins логотип" />
+      </a>
+      <nav class="main-nav" aria-label="Основна навігація">
+        <ul class="nav-links">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="catalog.html">Каталоги</a></li>
+          <li><a href="contact.html">Контакти</a></li>
+          <li><a href="ruletka.html">Рулетка</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pack-wrap">
+    <!-- Ліва частина: превʼю, опис, скачати -->
+    <section>
+      <a class="back" href="index.html">← Повернутися на головну</a>
+
+      <div class="card">
+        <img src="assets/pack-preview.png" alt="Повний мод-пак — прев'ю" class="preview" loading="lazy" />
+
+        <h1>Повний мод-пак для CSS (CS:S) — Classic + CS:GO скіни</h1>
+        <div class="meta">Розмір паку: ~120 MB • Оновлено: 31.12.2024</div>
+
+        <p class="notes">
+          Цей мод-пак додає в Counter-Strike: Source текстури та моделі, натхнені скінами з CS:GO.
+          Після інсталяції у тебе будуть оновлені текстури M4A4, AK-47, AWP, Glock та інші. Якщо хочеш більше яскравості — заходь на сайт, там окремі пакети та окремі скачування.
+        </p>
+
+        <!-- Замінити FILE_ID на свій Google Drive file id або поставити інше посилання -->
+        <a id="downloadLink" class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" target="_blank" rel="noopener noreferrer">Скачати мод-пак</a>
+
+        <div class="notes" id="dlNote">
+          <strong>Примітка:</strong> Якщо посилання відкриває перегляд в Google Drive — натисни «Завантажити» → або правий клік → «Зберегти як...».
+        </div>
+
+        <h3 style="margin-top:16px">Що в архіві</h3>
+        <div class="pack-list" aria-hidden="false">
+          <div class="item"><span>M4A4 — текстури</span><span>~20 MB</span></div>
+          <div class="item"><span>AK-47 — текстури</span><span>~18 MB</span></div>
+          <div class="item"><span>AWP — текстури</span><span>~25 MB</span></div>
+          <div class="item"><span>Glock, USP та інші</span><span>~22 MB</span></div>
+          <div class="item"><span>README — інструкція</span><span>~0.1 MB</span></div>
+        </div>
+
+        <div class="faq">
+          <h4>Інструкція з встановлення</h4>
+          <ol style="color:var(--muted) ; margin-left:18px;">
+            <li>Розпакуй архів (наприклад, у тимчасову папку).</li>
+            <li>Зроби бекап твоєї папки `cstrike` або `materials/models` (в залежності від структури паку).</li>
+            <li>Скопіюй вміст з архіву в корінь гри (папка `cstrike/` або `csgo/` відповідно).</li>
+            <li>Запусти гру і протестуй (рекомендується чиста установка, або вимкнути інші моди перед тестом).</li>
+          </ol>
+
+          <h4>Поширені питання</h4>
+          <p style="color:var(--muted)">Чи потрібен CS:GO для цього? — Ні, це мод під CS:S (Counter-Strike: Source). У README є детальна інформація. <br>
+          Легально це? — Ти повинен мати ліцензію/право на використання гри; не розповсюджуй чужий захищений контент без дозволу.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Права колонка: превью скіни, інші пакети -->
+    <aside>
+      <div class="card">
+        <h4 style="font-family: 'Orbitron', sans-serif;">Прев'ю з паку</h4>
+        <div style="display:grid; gap:8px; margin-top:10px;">
+          <img src="skins/m4a4-grime.png" alt="M4A4 Grime" style="width:100%; border-radius:8px; object-fit:cover;" loading="lazy">
+          <img src="skins/ak-wildlotus.png" alt="AK Wild Lotus" style="width:100%; border-radius:8px; object-fit:cover;" loading="lazy">
+          <img src="skins/awp-gradient.png" alt="AWP Gradient" style="width:100%; border-radius:8px; object-fit:cover;" loading="lazy">
+        </div>
+
+        <h4 style="margin-top:12px; font-family: 'Orbitron', sans-serif;">Інші пакети</h4>
+        <ul style="list-style:none; padding:0; margin-top:8px;">
+          <li style="margin-bottom:8px;"><a href="packs/m4a4.html" style="color:var(--accent); text-decoration:none;">M4A4 — окремий пак</a></li>
+          <li style="margin-bottom:8px;"><a href="packs/awp.html" style="color:var(--accent); text-decoration:none;">AWP — колекція</a></li>
+          <li><a href="catalog.html" style="color:var(--accent); text-decoration:none;">Повний каталог скінів</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h4 style="font-family: 'Orbitron', sans-serif;">Підтримка</h4>
+        <p style="color:var(--muted)">Якщо щось не працює — напиши нам: <a href="mailto:example@greenskins.com">example@greenskins.com</a></p>
+        <p style="color:var(--muted); margin-top:6px;">Порада: перед великими змінами роби бекап!</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer style="margin-top:28px;">
+    <div class="container">
+      <p style="color:var(--muted)">&copy; 2025 GreenSkins. Всі права захищено.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="pack.js"></script>
+</body>
+</html>
